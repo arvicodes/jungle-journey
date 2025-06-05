@@ -1,38 +1,124 @@
-.App {
-    text-align: center;
+/* Custom styles for the monkey storyboard */
+
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300;400;700&display=swap');
+
+body {
+  font-family: 'Comic Neue', cursive;
+  overflow-x: hidden;
 }
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+.min-h-screen {
+  animation: backgroundShift 10s ease-in-out infinite;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+@keyframes backgroundShift {
+  0%, 100% { 
+    background: linear-gradient(135deg, #dbeafe 0%, #fdf4ff 50%, #fce7f3 100%);
+  }
+  50% { 
+    background: linear-gradient(135deg, #fce7f3 0%, #dbeafe 50%, #fdf4ff 100%);
+  }
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* Smooth transitions for story panels */
+.story-panel {
+  transition: all 0.5s ease-in-out;
 }
 
-.App-link {
-    color: #61dafb;
+/* Custom button hover effects */
+button:hover {
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+button:active {
+  transform: translateY(0);
+}
+
+/* Image hover effects */
+img {
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+/* Progress bar animation */
+.progress-bar {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Text reading animation */
+.story-text {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scene dots animation */
+.scene-dot {
+  transition: all 0.3s ease;
+}
+
+.scene-dot:hover {
+  transform: scale(1.2);
+}
+
+/* Card shadow animation */
+.story-card {
+  transition: box-shadow 0.3s ease;
+}
+
+.story-card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive text sizing */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .story-text {
+    font-size: 1rem;
+  }
+}
+
+/* Loading animation for images */
+img[src] {
+  animation: imageLoad 0.5s ease-in-out;
+}
+
+@keyframes imageLoad {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

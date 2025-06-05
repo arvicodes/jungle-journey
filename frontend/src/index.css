@@ -2,16 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Child-friendly global styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-        "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-        "Helvetica Neue", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  font-family: 'Comic Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
 }
 
 code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-        monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Custom utility classes for children's content */
+.child-friendly-text {
+  @apply text-lg leading-relaxed;
+  letter-spacing: 0.025em;
+}
+
+.story-button {
+  @apply transition-all duration-200 ease-in-out;
+  @apply hover:scale-105 active:scale-95;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #8b5cf6, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Accessibility improvements */
+button:focus,
+.scene-dot:focus {
+  outline: 3px solid #8b5cf6;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none;
+  }
 }
